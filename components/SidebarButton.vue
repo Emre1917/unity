@@ -38,7 +38,7 @@ export default {
     return {
       items: [
         {
-          name: ',',
+          name: 'test',
         },
       ],
     }
