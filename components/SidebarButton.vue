@@ -1,24 +1,28 @@
 <template>
   <div>
-    <div
+    <nuxt-link
       v-for="(item, index) in items"
       :key="index"
-      class="py-3 px-5"
-      :class="activeIndex === index ? '' : ''"
-      @click="grabIndex(index)"
+      :to="item.link"
+      class="group w-full h-14 flex-none rounded-xl px-5 space-x-4 items-center flex fs transition-all duration-300"
+      :class="
+        $store.state.activeIndex === index ? 'bg-myPurple text-white' : ''
+      "
+      @click="$store.commit('changeActiveIndex', index)"
     >
-      <nuxt-link :to="item.link">
-        {{ item.name }}
+      <div class="flex items-center w-full group-hover:text-white">
         <Icon
+          class="mr-4 group-hover:text-white"
           :icon="item.icon"
           :class="
-            activeIndex === index
-              ? 'fill-current w-5 text-green-500'
-              : 'text-blue-500 fill-current w-5'
+            $store.state.activeIndex === index
+              ? 'fill-current w-5 text-white'
+              : 'fill-current w-5 text-genGray'
           "
         />
-      </nuxt-link>
-    </div>
+        {{ item.name }}
+      </div>
+    </nuxt-link>
   </div>
 </template>
 
@@ -30,35 +34,60 @@ export default {
     Icon,
   },
 
-  props: {
-    title: {
-      type: String,
-      default: 'placeholder',
-    },
-    link: {
-      type: String,
-      default: '/',
-    },
-  },
-
   data() {
     return {
       items: [
         {
           id: 1,
-          name: 'home',
-          link: '/test',
-          icon: 'home',
+          name: 'Overview',
+          link: '/',
+          icon: 'overview',
+        },
+        {
+          id: 2,
+          name: 'Products',
+          link: '/products',
+          icon: 'products',
+        },
+        {
+          id: 3,
+          name: 'Campaigns',
+          link: '/campaigns',
+          icon: 'campaigns',
+        },
+        {
+          id: 4,
+          name: 'Schedules',
+          link: '/schedules',
+          icon: 'schedules',
+        },
+        {
+          id: 5,
+          name: 'Payouts',
+          link: '/payouts',
+          icon: 'payouts',
+        },
+        {
+          id: 6,
+          name: 'Statements',
+          link: '/statements',
+          icon: 'statements',
+        },
+        {
+          id: 7,
+          name: 'Settings',
+          link: '/settings',
+          icon: 'settings',
         },
       ],
-      activeIndex: 0,
     }
   },
 
   methods: {
     grabIndex(index) {
       //   console.log(index)
-      this.activeIndex = index
+      // this.activeIndex = index
+      this.$store.commit('changeActiveIndex', index)
     },
   },
 }

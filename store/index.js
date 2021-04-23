@@ -33,19 +33,17 @@ export const state = () => ({
   ],
   isDark: false,
   showMenu: false,
+  activeIndex: null,
 })
 
 // export const getters = {
 //   todos: (state) => state.todos,
 // }
 
-const actions = {}
+export const actions = {}
 
-const mutations = {}
-
-export default {
-  // state,
-  //   getters,
-  actions,
-  mutations,
+export const mutations = {
+  changeActiveIndex(state, index) {
+    state.activeIndex = index
+  },
 }
