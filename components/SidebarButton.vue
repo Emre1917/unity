@@ -23,7 +23,13 @@
 </template>
 
 <script>
+import Icon from '@/components/svg/Icon'
+
 export default {
+  components: {
+    Icon,
+  },
+
   props: {
     title: {
       type: String,
@@ -34,15 +40,21 @@ export default {
       default: '/',
     },
   },
+
   data() {
     return {
       items: [
         {
-          name: 'test',
+          id: 1,
+          name: 'home',
+          link: '/test',
+          icon: 'home',
         },
       ],
+      activeIndex: 0,
     }
   },
+
   methods: {
     grabIndex(index) {
       //   console.log(index)
