@@ -5,20 +5,24 @@
       :key="index"
       :to="item.link"
       class="group w-full h-14 flex-none rounded-xl px-5 space-x-4 items-center flex fs transition-all duration-300"
-      :class="
-        $store.state.activeIndex === index ? 'bg-myPurple text-white' : ''
-      "
+      :class="[
+        $store.state.activeIndex === index ? 'bg-myPurple text-white' : '',
+        $store.state.isDark ? 'hover:text-white' : 'hover:text-myPurple ',
+      ]"
       @click="$store.commit('changeActiveIndex', index)"
     >
       <div class="flex items-center w-full group-hover:text-white">
         <Icon
-          class="mr-4 group-hover:text-white"
+          class="mr-4"
           :icon="item.icon"
-          :class="
+          :class="[
             $store.state.activeIndex === index
               ? 'fill-current w-5 text-white'
-              : 'fill-current w-5 text-genGray'
-          "
+              : 'fill-current w-5 text-genGray',
+            $store.state.isDark && $store.state.activeIndex === index
+              ? 'group-hover:text-white'
+              : 'group-hover:text-myPurple',
+          ]"
         />
         {{ item.name }}
       </div>

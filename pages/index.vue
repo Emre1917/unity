@@ -1,8 +1,14 @@
 <template>
-  <div class="bg-main w-full h-full txtsize flex justify-center">
+  <div
+    class="w-full h-full txtsize flex justify-center"
+    :class="$store.state.isDark ? 'bg-main' : 'bg-white '"
+  >
     <div class="flex ? start mx-auto">
       <!-- left main -->
-      <div class="flex flex-col text-white px-16 border-r border-genGray">
+      <div
+        class="flex flex-col text-white px-16 border-r border-genGray"
+        :class="$store.state.isDark ? 'text-white' : 'text-main '"
+      >
         <!-- main header -->
         <header class="mt-12 mb-11">
           <h1 class="myheader">Hi Tam Tran,</h1>
@@ -14,13 +20,16 @@
           <div class="card bg-myPurple rounded-3xl pt-11 pb-14 pl-8 flex">
             <!-- card left -->
             <div class="w-1/3">
-              <h1 class="text-3xl margB">Set a Google Analytics Code</h1>
-              <p class="text-sm margB">
+              <h1 class="text-3xl margB text-white">
+                Set a Google Analytics Code
+              </h1>
+              <p class="text-sm margB text-white">
                 Did you know you can set a Google Analytics code for your
                 products?
               </p>
               <button
-                class="bg-main flex items-center justify-center px-5 h-14 w-40 rounded-2xl font-semibold"
+                class="flex items-center justify-center px-5 h-14 w-40 rounded-2xl font-semibold"
+                :class="$store.state.isDark ? 'bg-main ' : 'bg-white '"
               >
                 Settings
               </button>

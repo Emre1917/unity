@@ -1,14 +1,26 @@
 <template>
   <div class="flex w-screen h-screen">
     <aside class="w-72 h-screen flex-none border-r border-genGray">
-      <div class="bg-main h-full w-72 flex flex-col">
+      <div
+        class="h-full w-72 flex flex-col"
+        :class="$store.state.isDark ? 'bg-main' : 'bg-white'"
+      >
         <!-- sidebar top -->
         <div
-          class="side-top w-full h-side-top bg-main flex-none flex items-center px-10"
+          class="side-top w-full h-side-top flex-none flex items-center px-10"
+          :class="$store.state.isDark ? 'bg-main' : 'bg-white'"
         >
+          <!-- logo white -->
           <img
+            v-if="$store.state.isDark"
             class=""
             src="https://ui8-unity.herokuapp.com/img/logo-white.png"
+            alt=""
+          />
+          <!-- logo black -->
+          <img
+            v-if="!$store.state.isDark"
+            src="https://ui8-unity.herokuapp.com/img/logo.png"
             alt=""
           />
         </div>
@@ -29,40 +41,23 @@
             <span class="text-xs pl-5 mb-4">Insights</span>
           </div>
           <!-- account button -->
-          <div
-            class="w-full h-16 mt-6 flex-none rounded-xl px-5 bg-blue-500 space-x-4 items-center flex justify-center"
-          >
-            <!-- pfp -->
-            <div class="w-10 h-10 items-center">
-              <img src="https://ui8-unity.herokuapp.com/img/ava.png" alt="" />
-            </div>
-            <!-- text -->
-            <div class="">
-              <h1 class="text-white">Tam Tran</h1>
-              <h1 class="text-sm">Free Account</h1>
-            </div>
-            <!-- account dropdown -->
-            <div class="w-6 h-6 text-white">
-              <!-- selector svg -->
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M8 9l4-4 4 4m0 6l-4 4-4-4"
-                />
-              </svg>
-            </div>
-          </div>
+          <ProfileMenu />
         </div>
         <!-- sidebar bottom -->
-        <div class="bg-main h-16 flex-none"></div>
+        <div
+          class="h-16 flex-none ml-4"
+          :class="$store.state.isDark ? 'bg-main' : 'bg-white'"
+        >
+          <div
+            class="w-14 h-7 bg-gray-900 rounded-full p-1"
+            @click="darkMode()"
+          >
+            <div
+              class="w-5 h-5 bg-white rounded-full transform transition-all duration-400 cursor-pointer"
+              :class="isSwitch ? 'translate-x-7' : 'translate-x-0'"
+            ></div>
+          </div>
+        </div>
       </div>
     </aside>
 
@@ -73,10 +68,23 @@
 
 <script>
 import SidebarButton from '@/components/SidebarButton'
+import ProfileMenu from '@/components/ProfileMenu'
 
 export default {
   components: {
     SidebarButton,
+    ProfileMenu,
+  },
+  data() {
+    return {
+      isSwitch: false,
+    }
+  },
+  methods: {
+    darkMode() {
+      this.isSwitch = !this.isSwitch
+      this.$store.commit('darkToggle')
+    },
   },
 }
 </script>

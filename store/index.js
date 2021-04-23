@@ -46,4 +46,7 @@ export const mutations = {
   changeActiveIndex(state, index) {
     state.activeIndex = index
   },
+  darkToggle(state) {
+    state.isDark = !state.isDark
+  },
 }
