@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-main w-full h-full">
-    <div>anything</div>
+  <div class="bg-main w-full h-full p-5">
+    <div class="text-white">Here is the index page</div>
   </div>
 </template>
 
