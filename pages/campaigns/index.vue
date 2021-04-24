@@ -1,9 +1,18 @@
 <template>
-  <div>campaigns</div>
+  <div>
+    <Space />
+  </div>
 </template>
 
 <script>
+import Space from '@/components/Space'
 export default {
+  components: {
+    Space,
+  },
+  data() {
+    return {}
+  },
   mounted() {
     this.$store.commit('changeActiveIndex', 2)
   },

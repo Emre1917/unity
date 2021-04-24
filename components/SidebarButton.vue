@@ -11,15 +11,15 @@
       ]"
       @click="$store.commit('changeActiveIndex', index)"
     >
-      <div class="flex items-center w-full group-hover:text-white">
+      <div class="flex items-center w-full">
         <Icon
-          class="mr-4"
+          class="mr-4 transition-all duration-300"
           :icon="item.icon"
           :class="[
             $store.state.activeIndex === index
               ? 'fill-current w-5 text-white'
               : 'fill-current w-5 text-genGray',
-            $store.state.isDark && $store.state.activeIndex === index
+            $store.state.isDark
               ? 'group-hover:text-white'
               : 'group-hover:text-myPurple',
           ]"
