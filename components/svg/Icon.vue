@@ -50,45 +50,45 @@
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        stroke-linecap="round"
         stroke-miterlimit="10"
         stroke-width="1"
         stroke="#2249B3"
         d="M2 13H22"
+        stroke-linecap="round"
       ></path>
       <path
-        stroke-linecap="round"
         stroke-miterlimit="10"
         stroke-width="1"
         stroke="#2249B3"
-        fill="none"
+        fill="#8FE4FF"
         d="M3 16C3 17.11 3.25 18.16 3.71 19.13C5.07 22.01 8.27 22 12 22C15.73 22 18.93 22.01 20.29 19.13C20.75 18.16 21 17.11 21 16H3Z"
         stroke-linejoin="round"
+        stroke-linecap="round"
       ></path>
       <path
-        stroke-linejoin="round"
         stroke-linecap="round"
         stroke-miterlimit="10"
         stroke-width="1"
         stroke="#2249B3"
-        fill="none"
         d="M21 10C21 5.58 16.97 2 12 2C7.03 2 3 5.58 3 10H21Z"
+        stroke-linejoin="round"
+        fill="#4382FF"
       ></path>
       <path
-        stroke-linejoin="round"
-        stroke-linecap="round"
         stroke-miterlimit="10"
         stroke-width="1"
         stroke="#2249B3"
         d="M15.99 7H16.01"
+        stroke-linejoin="round"
+        stroke-linecap="round"
       ></path>
       <path
-        stroke-linejoin="round"
         stroke-linecap="round"
         stroke-miterlimit="10"
         stroke-width="1"
         stroke="#2249B3"
         d="M11.99 5H12.01"
+        stroke-linejoin="round"
       ></path>
       <path
         stroke-linejoin="round"
@@ -161,6 +161,34 @@
         stroke="#2249B3"
         d="M15 6L18 9"
       ></path>
+    </svg>
+    <!-- left chevron -->
+    <svg
+      v-if="icon === 'chevron-l'"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M15 19l-7-7 7-7"
+      />
+    </svg>
+    <!-- heart filled -->
+    <svg
+      v-if="icon === 'heart-f'"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+        clip-rule="evenodd"
+      />
     </svg>
   </div>
 </template>
