@@ -22,11 +22,11 @@
       <div class="w-36 h-36 bg-myPurple rounded-lg mt-20"></div>
     </header>
     <main
-      class="w-full h-full mt-14 rounded-t-3xl bg-white shadow-2xl relative flex flex-col items-center"
+      class="w-full px-6 h-full mt-14 rounded-t-3xl bg-white shadow-2xl relative flex flex-col items-center"
     >
       <!-- count notch -->
       <div
-        class="h-10 w-24 bg-myPurple rounded-full absolute -top-5 flex items-center justify-between px-5"
+        class="h-10 w-24 shadow-lg bg-myPurple rounded-full absolute -top-5 flex items-center justify-between px-5"
       >
         <h1 class="text-lg font-medium">-</h1>
         <h1 class="font-medium text-xl">{{ num }}</h1>
@@ -34,20 +34,26 @@
       </div>
 
       <!-- top info -->
-      <div class="flex mt-10 w-full px-6 justify-between">
+      <div class="flex mt-10 w-full justify-between">
         <h1 class="text-xl font-medium">{{ food.name }}</h1>
         <h1 class="text-3xl font-medium">
           <span class="text-lg text-myPurple">$</span>{{ food.price }}
         </h1>
       </div>
       <!-- misc info -->
-      <div class="flex justify-between w-full px-6 mt-4 font-medium">
+      <div class="flex justify-between w-full mt-6 font-medium">
         <!-- rating -->
         <h1 class="shadow-md rounded-full px-2">⭐️ {{ food.rating }}</h1>
         <!-- calories -->
         <h1 class="shadow-md rounded-full px-2">🔥 {{ food.cal }} Calories</h1>
         <!-- delivery time -->
         <h1 class="shadow-md rounded-full px-2">⏰ 20-30 min</h1>
+      </div>
+      <div class="mt-10">
+        <h1 class="text-xl font-medium">Details</h1>
+        <p class="mt-3 text-gray-400 opacity-70">{{ food.details }}</p>
+        <h1 class="mt-8 text-xl font-medium">Ingredients</h1>
+        <p class="mt-3 text-gray-400 opacity-70">{{ food.ing }}</p>
       </div>
     </main>
   </div>
