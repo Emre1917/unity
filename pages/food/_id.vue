@@ -9,7 +9,11 @@
     >
       <!-- card image -->
       <img
-        :src="'http://localhost:1337' + food.image[0].url"
+        :src="
+          food.image
+            ? 'http://localhost:1337' + food.image.url
+            : 'http://localhost:3000/images/thumbnail.jpeg'
+        "
         alt=""
         class="w-32 h-32 rounded-lg object-cover"
       />
@@ -55,6 +59,7 @@ export default {
   layout: 'food',
   data() {
     return {
+      image: [],
       foods: [],
       num: 0,
       activeIndex: 0,
@@ -107,6 +112,7 @@ export default {
         })
 
         this.foods = res.data.category.foods
+        this.image = res.data.food.image
       } catch (e) {
         this.isLoading = false
         // console.log(e)
